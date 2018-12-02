@@ -21,13 +21,14 @@ using System;
 
 using Microsoft.Extensions.Logging;
 
+using thZero.Services;
+
 namespace thZero.Data.Repository
 {
-    public abstract class RepositoryCircuitBreaker<TRepository, TCommand, TRequest, TResult> : RepositoryRequestCircuitBreaker<RepositoryHystrixCommand<TRepository, TRequest, TResult>, TRequest, TResult>
-        where TRepository : IRepository
-        where TCommand: RepositoryHystrixCommand<TRepository, TRequest, TResult>
+    public abstract class RepostioryBaseCircuitBreaker<TCommand, TResult> : RepositoryLoggableBase<RepostioryBaseCircuitBreaker<TCommand, TResult>>
+        where TCommand : BaseHystrixCommand<TResult>
     {
-        public RepositoryCircuitBreaker(TRepository repository, ILogger<RepositoryCircuitBreaker<TRepository, TCommand, TRequest, TResult>> logger) : base(logger)
+        public RepostioryBaseCircuitBreaker(ILogger<RepostioryBaseCircuitBreaker<TCommand, TResult>> logger) : base(logger)
         {
         }
     }

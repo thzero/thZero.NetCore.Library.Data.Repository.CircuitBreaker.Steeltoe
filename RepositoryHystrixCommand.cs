@@ -26,12 +26,12 @@ using Steeltoe.CircuitBreaker.Hystrix;
 using Steeltoe.CircuitBreaker.Hystrix.Strategy.ExecutionHook;
 using Steeltoe.CircuitBreaker.Hystrix.Strategy.Options;
 
-using thZero.AspNetCore;
+using thZero.Services;
 
-namespace thZero.Services
+namespace thZero.Data.Repository
 {
     public abstract class RepositoryHystrixCommand<TRepository, TRequest, TResult> : RequestHystrixCommand<TRequest, TResult>
-        where TRepository : IService
+        where TRepository : IRepository
     {
         public RepositoryHystrixCommand(TRepository repository, TRequest request, IInstrumentationPacket instrumentation, string group, Func<TResult> run = null, Func<TResult> fallback = null, ILogger logger = null)
             : base(request, instrumentation, group, run, fallback, logger)
