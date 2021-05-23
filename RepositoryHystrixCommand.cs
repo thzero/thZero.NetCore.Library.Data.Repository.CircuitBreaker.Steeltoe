@@ -26,6 +26,7 @@ using Steeltoe.CircuitBreaker.Hystrix;
 using Steeltoe.CircuitBreaker.Hystrix.Strategy.ExecutionHook;
 using Steeltoe.CircuitBreaker.Hystrix.Strategy.Options;
 
+using thZero.Instrumentation;
 using thZero.Services;
 
 namespace thZero.Data.Repository
